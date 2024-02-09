@@ -12,6 +12,6 @@ class Basic03 extends Component
     {
         return view('livewire.basic.basic03')
         ->layout('layouts.app');
-        ;
+        
     }
 }
