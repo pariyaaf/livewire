@@ -7,6 +7,8 @@ use App\Models\Course;
 use App\Livewire\Basic\Basic03;
 use App\Livewire\Basic\Basic05;
 use App\Livewire\Mid\Mid01;
+use App\Livewire\Mid\Mid02;
+
 
 
 /*
@@ -36,7 +38,9 @@ Route::get('/fullpage', Basic03::class);
 
 Route::get('/fullpage2/{id}', Basic05::class);
 
-Route::get('/addtask', Mid01::class);
+Route::get('/task', Mid01::class);
+Route::get('/mid2/{id}', Mid02::class);
+
 
 
 
