@@ -5,6 +5,10 @@ use App\Models\Article;
 use App\Models\Course;
 // use App\Http\Livewire\Basic\Basic03;
 use App\Livewire\Basic\Basic03;
+use App\Livewire\Basic\Basic05;
+use App\Livewire\Mid\Mid01;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,5 +33,11 @@ Route::get('/home', function () {
 });
 
 Route::get('/fullpage', Basic03::class);
+
+Route::get('/fullpage2/{id}', Basic05::class);
+
+Route::get('/addtask', Mid01::class);
+
+
 
 
