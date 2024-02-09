@@ -16,7 +16,6 @@
     @livewireStyles
 </head>
 <body class="antialiased">
-
 {{ $slot }} 
     <h4>this is page blade </h4>
     @livewireScripts
