@@ -103,6 +103,8 @@ toastr()
 
     <livewire:basic.basic :course="$courses"/> 
 
+    <livewire:basic.basic02/> 
+
 
         @livewireScripts
     </body>
