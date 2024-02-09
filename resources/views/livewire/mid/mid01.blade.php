@@ -2,7 +2,7 @@
     {{-- The Master doesn't talk, he acts. --}}
 
     User:
-    <select wire:model="selectedUser">
+    <select wire:model="selectedUser" wire:change="tasksOfUser">
         @foreach($user_ids as $index => $user)
             <option value="{{ $index }}">{{ $user }}</option>
         @endforeach
@@ -13,8 +13,17 @@
     <input type="text" wire:model="task">
     <br>
 
-    <button wire:click="save">Add New Task</button>
+    <button wire:click="{{$editId ? 'updateTask' : 'save'}}">
+        {{$editId ? 'edit': 'new task'}}
+    </button>
 
     <hr>
-    Tasks of user: {{ $userTaskes }}
+    Tasks of user: 
+    @foreach($userTaskes as $id=>$task)
+    {{$task}}
+    <button wire:click="deleteTask({{$id}})">delete</button>
+    <button wire:click="goToEdit({{$id}})">edit</button>
+    <br>
+
+    @endforeach
 </div>

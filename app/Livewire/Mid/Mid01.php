@@ -12,7 +12,8 @@ class Mid01 extends Component
     public $user_ids;
     public $task;
     public $selectedUser;
-    public $userTaskes = '';
+    public $userTaskes = [];
+    public $editId = 0;
 
     public function render()
     {
@@ -37,6 +38,38 @@ class Mid01 extends Component
     }
 
     public function tasksOfUser() {
-        $this->userTaskes = TaskLw::where('user_id',$this->selectedUser)->pluck('tasks');
+        $this->userTaskes = TaskLw::where('user_id',$this->selectedUser)->pluck('tasks', 'id')->toArray();
+    }
+
+    public function deleteTask($id) {
+        $task = TaskLw::find($id);
+        $task->delete();
+
+        $this->tasksOfUser();
+
+        toastr()
+        ->persistent()
+        ->closeButton()
+        ->addSuccess('تسک با موفقیت حذف شد.');
+    }
+
+    public function updateTask() {
+        $task = TaskLw::find($this->editId);
+        $task->tasks = $this->task;
+        $task->save();
+        $this->editId = 0;
+        $this->tasksOfUser();
+
+        toastr()
+        ->persistent()
+        ->closeButton()
+        ->addSuccess('تسک با موفقیت ویرایش شد شد.');
+    }
+
+
+    public function goToEdit($id) {
+        $task = TaskLw::find($id);
+        $this->task = $task->tasks;
+        $this->editId = $task->id;
     }
 }
