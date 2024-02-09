@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Article;
 use App\Models\Course;
-
+// use App\Http\Livewire\Basic\Basic03;
+use App\Livewire\Basic\Basic03;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -26,3 +27,7 @@ Route::get('/home', function () {
 
     return view('home',compact('courses'));
 });
+
+Route::get('/fullpage', Basic03::class);
+
+
