@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Article;
+use App\Models\Course;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    $articles = Article::latest()->get();
+    $id = rand(3,4);
+    $courses = Course::find($id);
+
+    return view('home',compact('courses'));
 });
