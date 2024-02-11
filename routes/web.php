@@ -9,6 +9,8 @@ use App\Livewire\Basic\Basic05;
 use App\Livewire\Mid\Mid01;
 use App\Livewire\Mid\Mid02;
 use App\Livewire\Mid\Mid03;
+use App\Livewire\Mid\Mid04;
+
 
 
 /*
@@ -42,6 +44,10 @@ Route::get('/task', Mid01::class);
 Route::get('/mid2/{id}', Mid02::class);
 
 Route::get('/post', Mid03::class);
+
+
+Route::get('/lifecircle', Mid04::class);
+
 
 
 

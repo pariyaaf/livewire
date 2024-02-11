@@ -10,7 +10,22 @@ class Mid04 extends Component
     protected $listeners = ['showHelp'];
 
 
+    public $word ;
 
+    public function rendering() {
+        dump('rendering');
+        // toastr()
+        // ->closeButton()
+        // ->addSuccess('befor rendering.');
+    }
+
+    public function rendered() {
+        dump('rendered');
+        // toastr()
+        // ->closeButton()
+        // ->addSuccess('after rendering.');
+    }
+    
     public function render()
     {
         if ($this->show) {
@@ -25,5 +40,16 @@ class Mid04 extends Component
 
     public function showHelp () {
         $this->show = true;
+    }
+
+
+    public function dehydrate() {
+    }
+
+
+    public function updatingWord() {
+        $validatedData = $this->validate([
+            'word' => 'required|min:5',
+        ]);
     }
 }
