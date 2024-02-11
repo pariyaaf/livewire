@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Mid;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 use Livewire\Component;
 use App\Models\PostLw;
@@ -10,21 +11,23 @@ class Mid05 extends Component
 {
 
     use withFileUploads;
+    use WithPagination;
+
 
     public $image;
     public $title;
     public $content; 
-    public $posts; 
+    // public $posts;
+    
+    
 
     public function render() {
-        $this->allPosts();
-        return view('livewire.mid.mid05')
+        return view('livewire.mid.mid05',[
+            'posts' => PostLw::latest()->paginate(4),
+        ])
         ->layout('layouts.app');
     }
 
-    public function allPosts(){
-        $this->posts = PostLw::latest()->get();
-    }
 
     public function save()
     {
@@ -42,7 +45,6 @@ class Mid05 extends Component
             'image' => '/storage/posts/images/'.explode("/",$imagePath)[3],
         ]);
 
-        $this->allPosts();
 
         toastr()
             ->persistent()
@@ -50,6 +52,11 @@ class Mid05 extends Component
             ->addSuccess('پست تصویر دار با موفقیت اضافه شد.');
 
         $this->reset('title', 'content', 'image');
+    }
+
+    public function paginationView()
+    {
+        return 'custom-pagination-links-view';
     }
 
 
