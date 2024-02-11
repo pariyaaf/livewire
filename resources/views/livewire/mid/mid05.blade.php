@@ -32,4 +32,5 @@
             </div>
         @endforeach
     </div>
+    {{ $posts->links('custom-pagination-links') }}
 </div>
