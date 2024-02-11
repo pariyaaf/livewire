@@ -12,6 +12,7 @@ use App\Livewire\Mid\Mid03;
 use App\Livewire\Mid\Mid04;
 use App\Livewire\Mid\Mid05;
 use App\Livewire\MidPlus\Plus01;
+use App\Livewire\MidPlus\Plus02;
 
 
 
@@ -50,6 +51,9 @@ Route::get('/upload', Mid05::class);
 
 
 Route::get('/loader', Plus01::class);
+
+Route::get('/html', Plus02::class);
+
 
 
 
