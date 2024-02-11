@@ -16,8 +16,8 @@
         <!--         <button type="button" wire:click.stop="$set('topTitle', 'changed')" style="display: block; margin-bottom: 10px; padding: 8px; width: 100%;">Submit</button> -->
         <button type="button" wire:click.stop="$toggle('isSuccess')" style="display: block; margin-bottom: 10px; padding: 8px; width: 100%;">Submit</button>
    </form>
+   <button type="button" wire:click="$dispatch('showHelp')" style="display: block; margin-bottom: 10px; padding: 8px; width: 100%; background-color: #3490dc; color: #ffffff; border: 1px solid #2779bd; cursor: pointer;">Help</button>
 
-   
    <div style="margin-top: 20px;">
             <h2>All Posts:</h2>
             @foreach($posts as $post) 
@@ -27,4 +27,5 @@
                 </div>
             @endforeach
         </div>
+        <livewire:mid.mid04/>
 </div>
