@@ -10,6 +10,7 @@ use App\Livewire\Mid\Mid01;
 use App\Livewire\Mid\Mid02;
 use App\Livewire\Mid\Mid03;
 use App\Livewire\Mid\Mid04;
+use App\Livewire\Mid\Mid05;
 
 
 
@@ -47,6 +48,9 @@ Route::get('/post', Mid03::class);
 
 
 Route::get('/lifecircle', Mid04::class);
+
+Route::get('/upload', Mid05::class);
+
 
 
 
