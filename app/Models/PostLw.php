@@ -9,7 +9,9 @@ class PostLw extends Model
 {
     protected $fillable = [
         'title',
-        'content'
+        'content',
+        'image',
+
     ];
 
     use HasFactory;
