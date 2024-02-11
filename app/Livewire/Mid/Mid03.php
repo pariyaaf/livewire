@@ -11,6 +11,10 @@ class Mid03 extends Component
     public $title;
     public $content;
 
+    public $topTitle = "hello";
+    public $isSuccess =0 ;
+
+
     public function render()
     {
         $this->allPosts();
