@@ -10,16 +10,18 @@
         @error('title')
         {{$message}}
         @enderror
-
-        <textarea name="" id="" cols="30" rows="10" wire:model="content" style="display: block; margin-bottom: 10px; padding: 8px; width: 100%;"></textarea>
+        <textarea wire:model="content" wire:dirty.class="text-red-500" name="" id="" cols="30" rows="10" style="display: block; margin-bottom: 10px; padding: 8px; width: 100%;"></textarea>
         @error('content')
         {{$message}}
         @enderror
         <button type="submit" style="display: block; margin-bottom: 10px; padding: 8px; width: 100%;">Submit</button>
+        <div wire:dirty>
+            form changed(dirty)
+        </div>
     </form>
 
     
-    <div style="margin-top: 20px;">
+    <div style="margin-top: 20px;" wire:init="isLoaded">
         <h2>All Posts:</h2>
         @foreach($posts as $post) 
             <div style="background-color: #f0f0f0; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc;">
@@ -32,5 +34,7 @@
             </div>
         @endforeach
     </div>
-    {{ $posts->links('custom-pagination-links') }}
+    @if($loaded)
+        {{ $posts->links('custom-pagination-links') }}
+    @endif
 </div>

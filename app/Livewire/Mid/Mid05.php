@@ -18,17 +18,20 @@ class Mid05 extends Component
     public $title;
     public $content; 
     // public $posts;
+    public $loaded = false;
     
     
 
     public function render() {
         return view('livewire.mid.mid05',[
-            'posts' => PostLw::latest()->paginate(4),
+            'posts' => $this->loaded ? PostLw::latest()->paginate(4) : [],
         ])
         ->layout('layouts.app');
     }
 
-
+    public function isLoaded() {
+        $this->loaded =true;
+    }
     public function save()
     {
         $this->validate([
